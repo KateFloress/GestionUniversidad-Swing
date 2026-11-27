@@ -1,27 +1,37 @@
-# Sistema de Gestión Universitaria (Java Swing + MySQL)
+# 🎓 Sistema de Gestión Universitaria (Java Swing + MySQL)
 
-Aplicación de escritorio desarrollada en **Java** con **Swing** y **JDBC** para la gestión académica de calificaciones entre profesores y alumnos contra una base de datos **MySQL** (`universidad_db`).
+Aplicación de escritorio desarrollada en **Java** para gestionar calificaciones académicas entre docentes y estudiantes contra una base de datos relacional (**MySQL / MariaDB**). Proyecto realizado dentro del ciclo superior de **Desarrollo de Aplicaciones Multiplataforma (DAM)**.
 
-## Funcionalidades Principales
+## 🚀 Funcionalidades Principales
 
-* **Autenticación por Roles (`VentanaLogeo`):** Inicio de sesión con validación de credenciales y redirección automática según el cargo (*Profesor/a* o *Alumno/a*).
-* **Panel del Profesor (`VentanaProfe`):** Carga dinámica de los módulos impartidos por el docente, visualización de alumnos matriculados en `JTable` e inserción, actualización y eliminación de notas (0 a 10).
-* **Panel del Alumno (`VentanAlum`):** Consulta de calificaciones filtrando por módulo individual o visualizando el boletín completo de todas las asignaturas matriculadas.
-* **Persistencia Segura (`GestionBD` y `Conexion`):** Consultas parametrizadas mediante `PreparedStatement` y gestión automática de recursos con `try-with-resources`.
+* 🔐 **Inicio de Sesión por Roles (`VentanaLogeo`):** Autenticación de usuario y contraseña filtrando por perfil (*Profesor/a* o *Alumno/a*) con validación de campos.
+* 👨‍🏫 **Panel del Profesor (`VentanaProfe`):** Carga dinámica de los módulos impartidos por el docente, visualización de alumnos matriculados en `JTable` e inserción, modificación y eliminación de notas (0 a 10).
+* 👩‍🎓 **Panel del Alumno (`VentanAlum`):** Consulta de calificaciones filtrando por módulo individual o visualizando el boletín completo de todas las asignaturas matriculadas.
+* 🛡️ **Persistencia Segura (`GestionBD` y `Conexion`):** Consultas parametrizadas mediante `PreparedStatement` y gestión automática de conexiones con `try-with-resources`.
 
-## Estructura del Proyecto
+## 📂 Estructura del Proyecto
 
-* **`vista`:** Interfaces gráficas Swing (`VentanaLogeo`, `VentanaProfe`, `VentanAlum`).
-* **`baseDatos`:** Conexión JDBC (`Conexion`) y operaciones CRUD contra MySQL (`GestionBD`).
-* **`imagenes`:** Recursos gráficos e iconos de la interfaz.
+* **`vista`:** Interfaces gráficas Swing diseñadas con WindowBuilder (`VentanaLogeo`, `VentanaProfe`, `VentanAlum`).
+* **`baseDatos`:** Conexión JDBC (`Conexion`) y operaciones CRUD contra la base de datos (`GestionBD`).
+* **`imagenes`:** Recursos gráficos e iconos de la aplicación.
 
-## Tecnologías Utilizadas
+## 🛠️ Tecnologías Utilizadas
 
-* Java SE (Swing / AWT)
-* JDBC & MySQL / MariaDB
-* Eclipse IDE
+* Java
+* Java Swing
+* WindowBuilder
+* JDBC & MySQL
+* Eclipse IDE / phpMyAdmin
 
-## Capturas de Aplicación
+## 🗄️ Base de Datos (`universidad_db`)
+
+El proyecto trabaja sobre tres tablas relacionales principales:
+* **`usuarios`:** Almacena credenciales y rol (`usuario`, `password`, `cargo`).
+* **`modulos`:** Registra las asignaturas y el docente asignado (`id_modulo`, `nombre_modulo`, `profesor_usuario`).
+* **`matriculas`:** Relaciona alumnos, módulos y calificaciones (`id_matricula`, `alumno_usuario`, `id_modulo`, `nota`).
+
+## 📸 Capturas de la Aplicación
+
 
 <img width="452" height="304" alt="Captura de pantalla 2026-11-27 a las 1 22 10" src="https://github.com/user-attachments/assets/ff9a33b1-fc2c-4678-a12a-507161a13f18" />
 
